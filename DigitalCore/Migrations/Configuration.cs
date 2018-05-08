@@ -51,7 +51,7 @@ namespace DigitalCore.Migrations
 
 
             };
-            tipoArtigo.ForEach(TAR => context.TipoArtigo.AddOrUpdate(tar => tar.descricao, TAR));
+            tipoArtigo.ForEach(TA => context.TipoArtigo.AddOrUpdate(tar => tar.descricao, TA));
             context.SaveChanges();
 
 
