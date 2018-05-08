@@ -109,6 +109,7 @@
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Compra.cs" />
     <Compile Include="Models\DigitalCoreDb.cs" />
+    <Compile Include="Models\NumSerie.cs" />
     <Compile Include="Models\TipoArtigo.cs" />
     <Compile Include="Models\TipoPagamento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

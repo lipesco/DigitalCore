@@ -11,7 +11,7 @@ namespace DigitalCore.Models
         public TipoPagamento()
         {
             // inicialização da lista de compras de um tipo
-            ListaTipoPagamento = new HashSet<Compra>();
+            ListaCompras = new HashSet<Compra>();
         }
 
         public int ID { get; set; }
@@ -21,7 +21,7 @@ namespace DigitalCore.Models
         public string descricao { get; set; }
 
         // um TipoPagamento tem uma coleção de compras
-        public virtual ICollection<Compra> ListaTipoPagamento { get; set; }
+        public virtual ICollection<Compra> ListaCompras { get; set; }
 
     }
 }

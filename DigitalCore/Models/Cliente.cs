@@ -32,6 +32,14 @@ namespace DigitalCore.Models
         public string morada { get; set; }
 
         [Required]
+        [StringLength(8)]
+        public string codPostal { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        public string localidade { get; set; }
+
+        [Required]
         [StringLength(50)]
         public string email { get; set; }
 

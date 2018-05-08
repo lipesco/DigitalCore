@@ -24,12 +24,13 @@ namespace DigitalCore.Migrations
             //*********************************************************************
             // adiciona Clientes
             var cliente = new List<Cliente> {
-                new Cliente {ID=1, nome="Miguel Vitor", username="mvitor", password="123", morada="Rua do Comércio, Nº18", email="mvitor@gmail.com", telefone=249123456, NIF=115347923 },
-                new Cliente {ID=2, nome="Pedro Conceição", username="pconceicaor", password="213", morada="Rua João Torres, Nº94", email="pconceicao@yahoo.com", telefone=249765638, NIF=115836783 },
-                new Cliente {ID=3, nome="Maria Isabel", username="misabel", password="321", morada="Praça do Bom Jardim, Nº25", email="misabel@sapo.pt", telefone=249654321, NIF=102385734 },
-                new Cliente {ID=4, nome="João Silva", username="jsilva", password="132", morada="Rua da Alcântara, Nº142", email="jsilva@gmail.pt", telefone=249538247, NIF=201482693 },
-                new Cliente {ID=5, nome="Teresa Pinheiro", username="tpinheiro", password="312", morada="Rua D. Pedro, Nº11", email="tpinheiro@hotmail.com", telefone=249823953, NIF=159385395 },
-                new Cliente {ID=6, nome="Marta Santos", username="msantos", password="231", morada="Rua Oliveira Gaio, Nº275", email="msantos@sapo.pt", telefone=249839258, NIF=128573957 }
+                new Cliente {ID=1, nome="Miguel Vitor", username="mvitor", password="123", morada="Rua do Comércio, Nº18", codPostal="2300-243", localidade="Tomar", email="mvitor@gmail.com", telefone=249123456, NIF=115347923 },
+                new Cliente {ID=2, nome="Pedro Conceição", username="pconceicaor", password="213", morada="Rua João Torres, Nº94", codPostal="2300-538", localidade="Tomar", email="pconceicao@yahoo.com", telefone=249765638, NIF=115836783 },
+                new Cliente {ID=3, nome="Maria Isabel", username="misabel", password="321", morada="Praça do Bom Jardim, Nº25", codPostal="2300-623", localidade="Tomar", email="misabel@sapo.pt", telefone=249654321, NIF=102385734 },
+                new Cliente {ID=4, nome="João Silva", username="jsilva", password="132", morada="Rua da Alcântara, Nº142", codPostal="2300-743", localidade="Tomar", email="jsilva@gmail.pt", telefone=249538247, NIF=201482693 },
+                new Cliente {ID=5, nome="Teresa Pinheiro", username="tpinheiro", password="312", morada="Rua D. Pedro, Nº11", codPostal="2300-235", localidade="Tomar", email="tpinheiro@hotmail.com", telefone=249823953, NIF=159385395 },
+                new Cliente {ID=6, nome="Marta Santos", username="msantos", password="231", morada="Rua Oliveira Gaio, Nº275", codPostal="2300-844", localidade="Tomar", email="msantos@sapo.pt", telefone=249839258, NIF=128573957 }
+
             };
             cliente.ForEach(CL => context.Cliente.AddOrUpdate(cl => cl.nome, CL));
             context.SaveChanges();
@@ -49,26 +50,47 @@ namespace DigitalCore.Migrations
                 new TipoArtigo {ID=10, descricao="Rato"},
                 new TipoArtigo {ID=11, descricao="Teclado"}
 
-
             };
             tipoArtigo.ForEach(TA => context.TipoArtigo.AddOrUpdate(tar => tar.descricao, TA));
             context.SaveChanges();
 
+            //*********************************************************************
+            // adiciona Artigos
+            var numSerie = new List<NumSerie> {
+                new NumSerie {ID=1, numero="123456789"},
+                new NumSerie {ID=2, numero="123456790"},
+                new NumSerie {ID=3, numero="123456791"},
+                new NumSerie {ID=4, numero="123456792"},
+                new NumSerie {ID=5, numero="123456793"},
+                new NumSerie {ID=6, numero="123456794"},
+                new NumSerie {ID=7, numero="123456795"},
+                new NumSerie {ID=8, numero="123456796"},
+                new NumSerie {ID=9, numero="123456796"},
+                new NumSerie {ID=10, numero="123456796"},
+                new NumSerie {ID=11, numero="123456796"},
+                new NumSerie {ID=12, numero="123456796"},
+                new NumSerie {ID=13, numero="123456796"},
+                new NumSerie {ID=14, numero="123456796"},
+                new NumSerie {ID=15, numero="123456796"}
+
+            };
+            numSerie.ForEach(NS => context.NumSerie.AddOrUpdate(ns => ns.numero, NS));
+            context.SaveChanges();
 
             //*********************************************************************
             // adiciona Artigos
             var artigo = new List<Artigo> {
-                new Artigo {ID=1, numeroSerie=123456789, TipoFK=1, descricao="HP Omen 880-106Np", caracteristicas="Processador Intel i7 8700, RAM 16GB", preco="€1200", imagem="computador01.jpg" },
-                new Artigo {ID=2, numeroSerie=123456790, TipoFK=5, descricao="Toshiba TR200 3D TLC SATA III", caracteristicas="Disco SSD 240GB", preco="€55", imagem="discossd01.jpg" },
-                new Artigo {ID=3, numeroSerie=123456791, TipoFK=1, descricao="Asus ROG GR8II-T022Z Auta", caracteristicas="Processador Intel i5 7400, RAM 9GB", preco="€950", imagem="computador02.jpg" },
-                new Artigo {ID=4, numeroSerie=123456792, TipoFK=1, descricao="Asus D320MT", caracteristicas="Processador Intel i7 7700, RAM 8GB", preco="€600", imagem="computador03.jpg" },
-                new Artigo {ID=5, numeroSerie=123456793, TipoFK=5, descricao="Samsung 500GB EVO 850", caracteristicas="Disco SSD 500GB", preco="€125", imagem="discossd02.jpg" },
-                new Artigo {ID=6, numeroSerie=123456794, TipoFK=5, descricao="Kingston 120GB SSD A400 SATA III", caracteristicas="Disco SSD 120GB", preco="€35", imagem="discossd03.jpg" },
-                new Artigo {ID=7, numeroSerie=123456795, TipoFK=3, descricao="HP 15-bs109np", caracteristicas="Processador Intel i5 8250U, RAM 8GB, Disco 1TB", preco="€550", imagem="portatil01.jpg" },
-                new Artigo {ID=8, numeroSerie=123456796, TipoFK=3, descricao="Asus Zenbook UX430UA-78DHDCB1", caracteristicas="Processador Intel i7-8550U, 16GB RAM, Disco SSD 512GB", preco="€55", imagem="portatil02.jpg" }
+                new Artigo {ID=1, numeroSerieFK=1, TipoFK=1, descricao="HP Omen 880-106Np", caracteristicas ="Processador Intel i7 8700, RAM 16GB", preco="€1200", imagem="computador01.jpg" },
+                new Artigo {ID=2, numeroSerieFK=8, TipoFK=5, descricao="Toshiba TR200 3D TLC SATA III", caracteristicas ="Disco SSD 240GB", preco="€55", imagem="discossd01.jpg" },
+                new Artigo {ID=3, numeroSerieFK=3, TipoFK=1, descricao="Asus ROG GR8II-T022Z Auta", caracteristicas ="Processador Intel i5 7400, RAM 9GB", preco="€950", imagem="computador02.jpg" },
+                new Artigo {ID=4, numeroSerieFK=7, TipoFK=1, descricao="Asus D320MT", caracteristicas ="Processador Intel i7 7700, RAM 8GB", preco="€600", imagem="computador03.jpg" },
+                new Artigo {ID=5, numeroSerieFK=15, TipoFK=5, descricao="Samsung 500GB EVO 850", caracteristicas ="Disco SSD 500GB", preco="€125", imagem="discossd02.jpg" },
+                new Artigo {ID=6, numeroSerieFK=2, TipoFK=5, descricao="Kingston 120GB SSD A400 SATA III", caracteristicas ="Disco SSD 120GB", preco="€35", imagem="discossd03.jpg" },
+                new Artigo {ID=7, numeroSerieFK=9, TipoFK=3, descricao="HP 15-bs109np", caracteristicas ="Processador Intel i5 8250U, RAM 8GB, Disco 1TB", preco="€550", imagem="portatil01.jpg" },
+                new Artigo {ID=8, numeroSerieFK=12, TipoFK=3, descricao="Asus Zenbook UX430UA-78DHDCB1", caracteristicas ="Processador Intel i7-8550U, 16GB RAM, Disco SSD 512GB", preco="€55", imagem="portatil02.jpg" }
 
             };
-            artigo.ForEach(A => context.Artigo.AddOrUpdate(a => a.numeroSerie, A));
+            artigo.ForEach(A => context.Artigo.AddOrUpdate(a => a.numeroSerieFK, A));
             context.SaveChanges();
 
             //*********************************************************************

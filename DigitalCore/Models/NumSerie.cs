@@ -6,20 +6,16 @@ using System.Web;
 
 namespace DigitalCore.Models
 {
-    public class TipoArtigo
+    public class NumSerie
     {
-        public TipoArtigo()
+        public NumSerie()
         {
-            // inicialização da lista de Artigos de um Tipo de Artigo
+            // inicialização da lista de Artigos de um NumSerie
             ListaArtigos = new HashSet<Artigo>();
         }
-
         public int ID { get; set; }
-
         [Required]
-        [StringLength(20)]
-        public string descricao { get; set; }
-
+        public string numero { get; set; }
         // um TipoPagamento tem uma coleção de compras
         public virtual ICollection<Artigo> ListaArtigos { get; set; }
     }

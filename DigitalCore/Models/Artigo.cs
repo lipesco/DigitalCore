@@ -16,8 +16,9 @@ namespace DigitalCore.Models
 
         public int ID { get; set; }
 
-        [Required]
-        public int numeroSerie { get; set; }
+        [ForeignKey("NumSerie")]
+        public int numeroSerieFK { get; set; }
+        public virtual NumSerie NumSerie { get; set; }
 
         [ForeignKey("TipoArtigo")]
         public int TipoFK { get; set; }

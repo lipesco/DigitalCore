@@ -21,14 +21,17 @@ namespace DigitalCore.Models
         public virtual DbSet<Compra> Compra { get; set; }
         public virtual DbSet<TipoPagamento> TipoPagamento { get; set; }
         public virtual DbSet<ArtigoCompra> ArtigoCompra { get; set; }
-        public virtual DbSet<Artigo> Artigo { get; set; }
+        public virtual DbSet<NumSerie> NumSerie { get; set; }
         public virtual DbSet<TipoArtigo> TipoArtigo { get; set; }
-
+        public virtual DbSet<Artigo> Artigo { get; set; }
+        
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
 
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
+
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
             base.OnModelCreating(modelBuilder);
         }
